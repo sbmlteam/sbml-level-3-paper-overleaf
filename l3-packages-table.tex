@@ -1,0 +1,139 @@
+% Master File: main.tex -*- TeX-master: "main" -*-
+
+\definecolor{ourgray}{rgb}{0.3,0.3,0.3}
+
+\newcommand{\symbolcolor}{black}
+
+\newcommand{\notstarted}    {\textcolor{\symbolcolor}{\scalebox{1.25}{\danger}\xspace}}
+\newcommand{\suspended}     {\textcolor{\symbolcolor}{\hspace{3.5pt}\scalebox{1.25}{\danger}*}}
+\newcommand{\inprogress}    {\textcolor{\symbolcolor}{\raisebox{-2.5pt}{\scalebox{1.6}{\clock}}\xspace}}
+\newcommand{\done}          {\textcolor{\symbolcolor}{\scalebox{1.3}{\checkmark}\xspace}}
+\newcommand{\notapplicable} {\textcolor{\symbolcolor}{n/a\xspace}}
+
+\newcommand{\released}      {\textcolor{\symbolcolor}{\CIRCLE\xspace}}
+\newcommand{\notreleased}   {\textcolor{\symbolcolor}{\Circle\xspace}}
+
+\begin{sidewaystable}
+  \centering
+  \rowcolors{3}{}{rowgray}
+  \renewcommand{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.3}
+  \caption{Overview of SBML Level~3 packages and their release and development statuses.  Symbols: \protect\released = released; \protect\notreleased = not released; \protect\done = complete; \protect\inprogress = in progress; \newline\protect\notapplicable = not applicable. Spec.\ = specification.}
+  \begin{tabular}{m{0.1in}>{\raggedright}m{2in}>{\raggedright}m{0.5in}>{\raggedright}m{4.3in}>{\hspace*{3pt}}>{\hspace*{-5pt}}c>{\hspace*{-4pt}}c>{\hspace*{-4pt}}c>{\hspace*{-3pt}}>{\hspace*{1pt}}c}
+    \toprule
+    &                       &                   &                  & \textbf{Spec.} & \textbf{libSBML} & \textbf{JSBML}   & \textbf{Test} \\[-4pt]
+    & \textbf{Package name} & \textbf{Label} & \textbf{Purpose} & \textbf{Status}        & \textbf{Support} & \textbf{Support} & \textbf{Suite} \\
+    \midrule
+\released
+& Flux Balance Constraints
+    & fbc
+    & Define constraint-based models (also known as steady-state models).
+    & \done
+    & \done
+    & \done
+    & \done
+    \\    
+\released
+& Groups
+    & groups
+    & Collect elements together for annotation purposes.  Groups have no mathematical meaning and do not affect simulations.
+    & \done
+    & \done
+    & \done
+    & \notapplicable
+    \\
+\released
+& Hierarchical Model Composition
+    & comp
+    & Define models composed of other models. Those ``submodels'' can be stored in the same file or as separate files.
+    & \done
+    & \done
+    & \done
+    & \done
+    \\
+\released
+& Layout
+    & layout
+    & Store positions and sizes of model components in drawings of network diagrams of SBML models. (Cf.\ Rendering package.)
+    & \done
+    & \done
+    & \done
+    & \notapplicable
+    \\
+\released
+& Multistate, Multicomponent, and Multicompartment Species
+    & multi
+    & Define complex features such as states or binding sites on molecular species, optionally in combination with rule-based processes.
+    & \done
+    & \done
+    & \done
+    & \inprogress
+    \\
+\released
+& Qualitative Models
+    & qual
+    & Define logical networks, Petri Nets, and similar models in which the numerical values of SBML species represent qualitative activity levels rather than amounts or concentrations of molecules.
+    & \done
+    & \done
+    & \done
+    & \inprogress
+    \\
+\released
+& Rendering
+    & render
+    & Extend the Layout package to enable storing graphical symbols and styles, curves, colors, and gradients in network diagrams.
+    & \done
+    & \done
+    & \done
+    & \notapplicable
+    \\
+\hline
+\notreleased
+& Arrays
+    & arrays
+    & Define arrays of elements, such as arrays of compartments. (Core SBML Level~3 supports only scalar values.)
+    & \inprogress
+    & \done
+    & \done
+    & \inprogress
+    \\
+\notreleased
+& Distributions
+    & distrib
+    & Define statistical distributions for quantitative values. (Core SBML does not enable indicating value ranges or distributions.)
+    & \inprogress
+    & \done
+    & \done
+    & \inprogress
+    \\
+\notreleased
+& Dynamical Processes
+    & dyn
+    & Describe the creation, destruction, and movement of model elements during simulation.
+    & \inprogress
+    & \done
+    & \done
+    & \inprogress
+    \\
+\notreleased
+& Extended math
+    & math
+    & Add additional syntactic constructs not included in the subset of MathML used by SBML Level~3 Core for mathematical expressions.
+    & \inprogress
+    & \inprogress
+    & \inprogress
+    & \inprogress
+    \\    
+\notreleased
+& Spatial Processes
+    & spatial
+    & Define spatially-inhomogeneous compartment geometries and processes such as diffusion.
+    & \inprogress 
+    & \done
+    & \done
+    & \inprogress
+    \\
+    \bottomrule
+  \end{tabular}
+  \label{packages}
+\end{sidewaystable}
