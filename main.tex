@@ -39,7 +39,7 @@
 
 \newcounter{boxcounter}
 
-\title{SBML Level 3: progress in supporting interoperable representations of models in biology}
+\title{SBML Level 3: interoperable representations of models in biology}
 
 \author[1]{\emph{List Authors here}}
 
@@ -61,14 +61,14 @@ Systems modeling and numerical simulations in biology can be traced to the mid-2
 
 The availability of more data about biological mechanisms and functions, more powerful modeling methods, and dramatically increased computing power led to the rise of systems biology as a new research area around the turn of the millennium~\citep{kitano2000perspectives, ideker2001new}. Though computational models were at first published as equations in journal articles, the desire to reuse an ever-increasing number of models called for a digital format that could be communicated directly between different software systems, databases, and people. This drove efforts to create tool-\emph{independent} ways of representing models that could avoid the potential for human translation errors and provide a common starting point for simulations and analyses regardless of the software used~\citep{Lloyd2004-fd, Goddard2001-ix, hucka_2001}. One such effort was SBML, the Systems Biology Markup Language. Its initial design was motivated by discussions to create a ``metabolic model file format'' following a 1999 NATO workshop~\citep{Cornish-Bowden2000technological}. A distributed community thereafter discussed ideas that informed work at Caltech in late 1999/early 2000 and led (after a series of public drafts) to the specification of the official version of SBML Level 1 Version 1 being released in March 2001~\citep{hucka_2003}.
 
-While SBML was initially developed to exchange non-spatial compartmental models of biochemical reaction networks primarily formulated in terms of chemical kinetics~\citep{hucka_2002}, it was always understood that there existed more types of models than the initial version of SBML could represent directly. However, seeking community consensus on a limited set of simpler features, which could be readily implemented in software at the time, was deemed a more pragmatic strategy. A deliberate decision was taken to delay the addition of more advanced capabilities to later in time.  As a result, SBML has evolved in stages in a community-driven fashion that has benefited from the efforts of many researchers worldwide over nearly two decades.  Over time, the community saw the need to support a broader range of model types, modeling paradigms, and research areas. In addition to reaction-diffusion models, alternative modeling frameworks have rised in popularity in the past decade, such as constraint-, logic- and rule-based models. These needs drove a profound change in SBML's structure: a facility to permit layering the core of SBML with new features suited to more types of models, together with a way for individual models to identify which sets of extensions they need for proper interpretation. The release of SBML Level~3 in 2010~\citep{Hucka2015} has provided a new foundation to enable the exchange of a greater variety of models in various domains of biology (Figure~\ref{level-3-diagram}).
+While SBML was initially developed to exchange non-spatial compartmental models of biochemical reaction networks primarily formulated in terms of chemical kinetics~\citep{hucka_2002}, it was always understood that there existed more types of models than the initial version of SBML could represent directly. However, seeking community consensus on a limited set of simpler features, which could be readily implemented in software at the time, was deemed a more pragmatic strategy. A deliberate decision was taken to delay the addition of more advanced capabilities to later in time.  As a result, SBML has evolved in stages in a community-driven fashion that has benefited from the efforts of many researchers worldwide over nearly two decades.  Over time, the community saw the need to support a broader range of model types, modeling paradigms, and research areas. In addition to reaction-diffusion models, alternative modeling frameworks have risen in popularity in the past decade, such as constraint-, logic- and rule-based models. These needs drove a profound change in SBML's structure: a facility to permit layering the core of SBML with new features suited to more types of models, together with a way for individual models to identify which sets of extensions they need for proper interpretation. The release of SBML Level~3 in 2010~\citep{Hucka2015} has provided a new foundation to enable the exchange of a greater variety of models in various domains of biology (Figure~\ref{level-3-diagram}).
 
 In the rest of this article, we describe SBML's structure, its support for different model features, its community-oriented development process, its impact, and finally, forthcoming challenges.
 
 \begin{figure}[b]
   \center
   \includegraphics[width=\textwidth]{res/SBML-Level3-v08.png}
-\caption{SBML Level 3 consists of a core (center) and specialized SBML Level~3 \emph{Packages} (in blue) providing new syntactical constructs and cover new modeling approaches. The Packages support new types of modeling (in gray) needed for large and complex models such as used in various domains and fields of biology (in red). The meanings of SBML package labels such as ``fbc'' are given in Table~1.}
+\caption{SBML Level 3 consists of a core (center) and specialized SBML Level~3 \emph{Packages} (in blue) which provide new syntactical constructs and cover new modeling approaches. The Packages support new types of modeling (in gray) needed for large and complex models such as used in various domains and fields of biology (in red). The meanings of SBML package labels such as ``fbc'' are given in Table~1, with additional package information in Box~1.}
 \label{level-3-diagram}
 \end{figure}
 
@@ -80,9 +80,9 @@ In the rest of this article, we describe SBML's structure, its support for diffe
 \label{sec:sbml}
 % ======================================================================
 
-The core of SBML is focused on encoding models in which entities located in containers are acted upon by processes that produce modified or new entities.  Additional constructs allow parameters, initial conditions, other variables, and other mathematical relationships to be defined.  In the most common type of model, the ``entities'' are biochemical substances, the ``containers'' are well-mixed and spatially homogenous, and the ``processes'' are biochemical reactions happening within or between the containers.  This originally led to the SBML constructs being named \emph{species}, \emph{compartments}, and \emph{reactions}, respectively (Figure \ref{fig:examples-sbml}B), but these names are a historical artifact and belie the generality of the underlying scheme.  Software applications can map the names to other concepts in their user interfaces to provide more intuitive names that better suit their purposes.  For instance, the ``species'' might be mapped to populations of molecules, cells, or even organisms, and the mathematical constructs can represent relationships at any scale.  SBML is not restricted to a particular field of the life sciences or to a specific level of description.
+The core of SBML is focused on encoding models in which entities are located in containers, and those entities are acted upon by processes that produce modified or new entities.  The containers do not need to correspond to physical structures; they can be conceptual or abstract.  Additional constructs allow parameters, initial conditions, other variables, and other mathematical relationships to be defined.  In the most common type of model, the ``entities'' are biochemical substances, the ``containers'' are well-mixed and spatially homogenous, and the ``processes'' are biochemical reactions happening within or between the containers.  This originally led to the SBML constructs being named \emph{species}, \emph{compartments}, and \emph{reactions}, respectively (Figure \ref{fig:examples-sbml}B), but these names are a historical artifact and belie the generality of the underlying scheme.  Software applications can map the names to other concepts in their user interfaces to provide more intuitive names that better suit their purposes.  For instance, the ``species'' might be mapped to populations of molecules, cells, or even organisms, and the mathematical constructs can represent relationships at any scale.  SBML is not restricted to a particular field of the life sciences or to a specific level of description.
 
-Modelers and software applications are encouraged to use SBML's reaction construct whenever possible to define the processes governing a model, in preference to defining models solely with mathematical equations.  Using the former approach means that reactions are defined explicitly and listed individually, and it is up to the reader of the model (e.g., a software application) to convert the definitions into a set of mathematical equations if that is appropriate and necessary to the user's purposes.  This approach supports cases where the rates of reactions are unknown or unneeded, such as in interaction maps~\citep[e.g.,][]{oda2005comprehensive}---indeed, some models use no mathematics at all, and only carry the reaction structure.  It also supports annotation of the reactions themselves as well as the elaboration of the reaction construct using SBML Packages (see below).  This explicit, granular representation approach, in which not only reactions but other elements of a model are encoded separately, makes it easier to reuse and modify existing models: elements can be added, replaced, or removed without having to reverse-engineer the model elements from mathematical equations (an inefficient and error-prone procedure if the model is large and complex).
+Modelers and software applications are encouraged to use SBML's reaction construct whenever possible to define the processes governing a model, in preference to defining models solely with mathematical equations.  Using the former approach means that processes are defined explicitly and listed individually, and it is up to the reader of the model (e.g., a software application) to convert the definitions into a set of mathematical equations if that is appropriate and necessary to the user's purposes.  This approach supports cases where the rates of reactions are unknown or unneeded, such as in interaction maps~\citep[e.g.,][]{oda2005comprehensive}---indeed, some models use no mathematics at all, and only carry the reaction structure.  It also supports annotation of the reactions themselves as well as the elaboration of the reaction construct using SBML Packages (see below).  This explicit, granular representation approach, in which not only reactions but other elements of a model are encoded separately, makes it easier to reuse and modify existing models: elements can be added, replaced, or removed without having to reverse-engineer the model elements from mathematical equations (an inefficient and error-prone procedure if the model is large and complex).
 
 % Maybe try to work in this point by Matthias: Having units and unit validation is the only way to allow model reuse, model component reuse, yes even reuse of a single parameter! (without the unit the parameter means nothing and cannot be used in any other context without annotating/finding out the unit of the parameter manually).
 
@@ -95,7 +95,7 @@ Support for annotations, already mentioned above, has become one of its most use
 \begin{figure}[htb]
    \center
    \includegraphics[width=.8\textwidth]{res/SBML_XML_example_v03.png}
- \caption{A closer look at SBML. A) Fragments of the global structure of an SBML file. In this example, the use of several SBML packages is declared in the file header. Model elements in the file include the descriptions of model variables, as well as their relationships.  Elements of the same type are collected into ``ListOf'' elements; e.g., model parameters are in the ListOfParameters element. SBML package elements can refer to elements in the SBML Core as necessary. B) Model elements are linked through unique identifiers used in the mathematical constructs and the elements describing the reactions, the molecular species, and their localization.}
+ \caption{A closer look at SBML. A) Fragments of the global structure of an SBML file. In this example, the use of several SBML packages is declared in the file header. Model elements in the file include the descriptions of model variables, as well as their relationships.  Elements of the same type are collected into ``ListOf'' elements; e.g., model parameters are in the ListOfParameters element. SBML package elements can refer to elements in the SBML Core as necessary. B) Model elements are linked through unique identifiers used in the mathematical constructs and the elements describing the reactions, the molecular species, and their localization. (The full model for this example is available in BioModels Database.}
 \label{fig:examples-sbml}
 \end{figure}
 
@@ -167,15 +167,17 @@ One of COMBINE's core activities is to maintain a list of persistent URLs for al
 \mybox{Software infrastructure for SBML}\label{box:software}
 % **********************************************************************
 
- \begin{tabular} {  c | c }
+\newcommand{\tighturl}[1]{\textls[-20]{\url{#1}}}
+
+\begin{tabular} {@{}c|c@{}}
     \textbf{Application Programming Interface (API)} & \textbf{Test Suite} \\
-\begin{tabular} {P{2.8 in}}
+\begin{tabular} {P{3.1 in}}
 Programming libraries help to read, write, manipulate, validate, and transform SBML
 \begin{enumerate}
 	\item LibSBML~\citep{bornstein2008libsbml} 
-(\url{http://sbml.org/Software/libSBML}) is written in C++ and offers language interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R and Ruby.
+(\tighturl{http://sbml.org/Software/libSBML}) is written in C++ and offers language interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R and Ruby.
 
-	\item  JSBML~\citep{Rodriguez2015} (\url{http://sbml.org/Software/JSBML}) is a pure-Java based implementation.
+	\item  JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) is a pure-Java based implementation.
 \end{enumerate}
 Both libraries:
 \begin{itemize}
@@ -185,8 +187,8 @@ Both libraries:
 \end{itemize}
 \end{tabular}
 &
-\begin{tabular} {P{2.8 in}}
-An SBML Test Suite (\url{http://sbml.org/Software/SBML_Test_Suite}) 
+\begin{tabular} {P{2.9 in}}
+An SBML Test Suite (\tighturl{http://sbml.org/Software/SBML_Test_Suite}) 
 helps developers support SBML correctly and helps users check software compliance
 \begin{enumerate}
 \item Thousands of test cases for
@@ -201,11 +203,11 @@ helps developers support SBML correctly and helps users check software complianc
 \\
 \hline
     \textbf{Validation Facilities} & \textbf{Conversion Facilities} \\
-\begin{tabular} {P{2.8 in}}
+\begin{tabular} {P{3.1 in}}
 Validation software can check files for compliance to the definition of SBML
 \begin{enumerate}
 	\item API libraries include built-in validation
-	\item Online validator has simple user interface (\url{http://sbml.org/Facilities/Validator/})
+	\item Online validator has simple user interface (\mbox{\tighturl{http://sbml.org/Facilities/Validator}})
 	\item Web services support software access
 \end{enumerate}
 
@@ -216,8 +218,8 @@ Validation ensures compliance with
 \end{itemize}
 \end{tabular}
 &
-\begin{tabular} {P{2.8 in}}
-Converters (\url{http://sbml.org/Software/Converters}) can translate certain other formats to SBML or vice versa
+\begin{tabular} {P{2.9 in}}
+Converters (\tighturl{http://sbml.org/Software/Converters}) can translate certain other formats to SBML or vice versa
 \begin{enumerate}
       \item Standalone conversion tools support format conversions from formats that include MATLAB~\citep[using MOCCASIN,][]{gomez2016moccasin}, BioPAX~\citep[using BioPAX2SBML,][]{Buchel2012qualitative}, and others
       \item Online services such as SBFC~\citep{Rodriguez2016systems} convert uploaded files to a variety of formats
@@ -231,8 +233,8 @@ Converters (\url{http://sbml.org/Software/Converters}) can translate certain oth
 }
 \\
 \multicolumn{2}{c}{
-\begin{tabular} {P{5.6 in}}
-A catalog (\url{http://sbml.org/SBML_Software_Guide}) of software applications, libraries and online services known to support SBML---over 290 entries to date
+\begin{tabular} {P{6in}}
+A catalog (\tighturl{http://sbml.org/SBML_Software_Guide}) of software applications, libraries and online services known to support SBML---over 290 entries to date
 \begin{enumerate}
 	\item A tabular interface highlights supported SBML features of each software system
 	\item A list interface displays human-readable summaries of software systems
@@ -297,7 +299,7 @@ Finally, the continued development of SBML has stimulated collaborative work and
 
 One of the most significant impacts that SBML has had on computational systems biology has been to facilitate, and sometimes lead to the initiation of, collaborative work. Here we describe three examples in which the use of SBML was at the core of research projects.
 
-\textbf{SBML throughout the model life-cycle}~~~~Encoding a model in SBML makes it easier to use different software tools for different purposes, and thus makes it easier to leverage the most suitable tools at different points in a workflow.  The following is an example.  A signaling pathway can be designed graphically using CellDesigner~\citep{Funahashi2003celldesignera, Matsuoka2014modeling}. The resulting model can then be semi-automatically annotated using the online tool semanticSBML~\citep{krause2010annotation}. Experimental kinetic information can be retrieved in SBML format from the SABIO-Reaction Kinetics database~\citep{wittig2017sabio}. COPASI~\citep{hoops2006copasi} provides facilities to estimate parameters and to simulate the model with various algorithms. Other SBML-enabled tools such as Tellurium~\citep{choi2016tellurium} and PySCeS~\citep{olivier2005modelling} provide capabilities such as identifiability and bifurcation analysis. Each step of the process applied to a model from creation to publication of results---modeling, simulation and analysis---can be documented using notes attached to every model element. The model can even be turned into a publishable document using SBML2\LaTeX~\citep{Draeger2009b}.
+\textbf{SBML throughout the model life-cycle}~~~~Encoding a model in SBML makes it easier to use different software tools for different purposes, and thus makes it easier to leverage the most suitable tools at different points in a workflow.  The following is an example.  A signaling pathway can be designed graphically using CellDesigner~\citep{Funahashi2003celldesignera, Matsuoka2014modeling}. The resulting model can then be semi-automatically annotated using the online tool semanticSBML~\citep{krause2010annotation}. Experimental kinetic information can be retrieved in SBML format from the SABIO-Reaction Kinetics database~\citep{wittig2017sabio}. COPASI~\citep{hoops2006copasi} provides facilities to estimate parameters and to simulate the model with various algorithms. Other SBML-enabled tools such as Tellurium~\citep{Medley2018tellurium, Choi2018tellurium} and PySCeS~\citep{olivier2005modelling} provide capabilities such as identifiability and bifurcation analysis. Each step of the process applied to a model from creation to publication of results---modeling, simulation and analysis---can be documented using notes attached to every model element. The model can even be turned into a publishable document using SBML2\LaTeX~\citep{Draeger2009b}.
 
 \textbf{Pipeline for automated model building}~~~~Being able to describe model elements with precision using semantic annotations facilitates the creation of automated pipelines. Such pipelines can combine existing models with databases of molecular phenotypes or reaction kinetics~\citep{li2010systematic}.  They can also generate models \emph{de novo} from data resources, as has been demonstrated by the Path2Models project~\citep{buchel2013path2models}. Path2Models has produced 143,000 SBML models---all fully annotated---for over 2,600 organisms, by using pathway data. Metabolic pathways were encoded in SBML Level~3 Core while signaling pathways were encoded with the SBML ``qual'' package~\citep{chaouiya2013sbml}. Moreover, constraint-based models of genome-scale reconstruction were provided for each organism. Other pipelines have now been built, including ones that can systematically generate alternative models for different tissue-types~\citep{wang2012reconstruction,thiele2013community} and patients~\citep{uhlen2017pathology}, a pivotal stepping-stone towards personalized precision medicine.
 
