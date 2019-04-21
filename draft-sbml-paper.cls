@@ -22,8 +22,8 @@
 \RequirePackage{array}
 \RequirePackage{booktabs}
 \RequirePackage{xspace}
+\RequirePackage[pagewise,mathlines,edtable,right]{lineno}
 \RequirePackage{soul}
-\RequirePackage{url}
 %\RequirePackage[square,numbers,sort&compress]{natbib}
 \RequirePackage{scrextend}
 \RequirePackage{xhfill}
@@ -37,7 +37,7 @@
 \RequirePackage[font={small,it}]{caption}
 
 \RequirePackage[pdftex]{graphicx}
-\RequirePackage[pdftex,breaklinks=true,colorlinks=true, bookmarks=false,pdfhighlight=/O,urlcolor=darkblue,citecolor=darkred,linkcolor=darkblue]{hyperref}
+\RequirePackage[pdftex,breaklinks=true,colorlinks=true,bookmarks=false,pdfhighlight=/O,urlcolor=darkblue,linkcolor=darkblue,citecolor=mediumgreen]{hyperref}
 
 \RequirePackage{pdfpages} % This must be placed after the inclusion of pdftex.
 
@@ -56,9 +56,12 @@
 \definecolor{almostblack}{gray}{0.23}
 \definecolor{lightyellow}{rgb}{0.98,0.94,0.7}
 \definecolor{verylightyellow}{rgb}{0.97,0.95,0.85}
-\definecolor{darkblue}{rgb}{0.1,0.4,0.55}
+\definecolor{darkblue}{rgb}{0,0.3,0.68}
 \definecolor{mediumgreen}{rgb}{0.1,0.6,0.3}
 \definecolor{darkred}{rgb}{0.6,0,0.1}
+\definecolor{linenumbercolor}{gray}{0.75}
+\definecolor{mediumpurple}{rgb}{0.54,0.17,0.89}
+\definecolor{darkgreen}{rgb}{0,0.8,0.4}
 
 % Style adjustments.
 % .............................................................................
@@ -87,6 +90,19 @@
 \setlength{\parskip}{1.3ex}            % ... by roughly one blank line.
 \setlength{\partopsep}{-1ex plus 0.1ex minus -0.2ex}
 \setlength{\itemsep}{-0.25ex plus 0.15ex}
+
+% 'lineno' package adjustments.
+% The BeginAccSupp business causes the line numbers to be ignored for
+% copy-paste operations in the PDF output, at least in Acrobat.
+
+\setlength{\linenumbersep}{2.2em}
+\renewcommand{\linenumberfont}{\tiny\sffamily}
+\renewcommand{\thelinenumber}{%
+  \BeginAccSupp{ActualText={}}%
+
+\textcolor{linenumbercolor}{\parbox[b][\height+1.5pt][c]{10pt}{\arabic{linenumber}}}%
+  \EndAccSupp{}%
+}
 
 % 'booktabs' package adjustments:
 
@@ -175,7 +191,6 @@
 \newcommand{\eg}{e.g.,\xspace}
 \newcommand{\ie}{i.e.,\xspace}
 \newcommand{\idorg}{\href{http://identifiers.org}{\texttt{Identifiers.org}}\xspace}
-
 
 % The end.
 % .............................................................................
