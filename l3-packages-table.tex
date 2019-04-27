@@ -2,14 +2,14 @@
 
 \newcommand{\symbolcolor}{black}
 
-\newcommand{\notstarted}    {\textcolor{\symbolcolor}{\scalebox{1.25}{\danger}\xspace}}
-\newcommand{\suspended}     {\textcolor{\symbolcolor}{\hspace{3.5pt}\scalebox{1.25}{\danger}*}}
-\newcommand{\inprogress}    {\textcolor{\symbolcolor}{\raisebox{-2.5pt}{\scalebox{1.6}{\clock}}\xspace}}
-\newcommand{\done}          {\textcolor{\symbolcolor}{\scalebox{1.3}{\checkmark}\xspace}}
+\newcommand{\notstarted}    {\textcolor{\symbolcolor}{\scalebox{1.25}{\normalfont\danger}\xspace}}
+\newcommand{\suspended}     {\textcolor{\symbolcolor}{\hspace{3.5pt}\scalebox{1.25}{\normalfont\danger}*}}
+\newcommand{\inprogress}    {\textcolor{\symbolcolor}{\raisebox{-2.5pt}{\scalebox{1.6}{\normalfont\clock}}\xspace}}
+\newcommand{\done}          {\textcolor{\symbolcolor}{\scalebox{1.3}{\normalfont\checkmark}\xspace}}
 \newcommand{\notapplicable} {\textcolor{\symbolcolor}{\textls[-60]{n/a}\xspace}}
 
-\newcommand{\released}      {\textcolor{\symbolcolor}{\CIRCLE\xspace}}
-\newcommand{\notreleased}   {\textcolor{\symbolcolor}{\Circle\xspace}}
+\newcommand{\released}      {\textcolor{\symbolcolor}{\normalfont\CIRCLE\xspace}}
+\newcommand{\notreleased}   {\textcolor{\symbolcolor}{\normalfont\Circle\xspace}}
 
 \newcommand*\rot{\rotatebox{90}}
 
@@ -19,7 +19,7 @@
   \renewcommand{\tabcolsep}{4pt}
   \renewcommand{\arraystretch}{1.3}
   \caption{Summary of SBML Level~3 Package statuses.  Symbols: \protect\released = released; \protect\notreleased = not released; \protect\done = complete; \protect\inprogress = in progress; \protect\notapplicable = not applicable.}
-  \begin{tabular}{m{0.12in}>{\raggedright}m{1.9in}>{\raggedright}m{0.46in}>{\raggedright}m{3.9in}>{\hspace*{3pt}}>{\hspace*{-5pt}}c>{\hspace*{-4pt}}c>{\hspace*{-4pt}}c>{\hspace*{-6pt}}>{\hspace*{1pt}}c>{\hspace*{1pt}}m{1.5in}}
+  \begin{tabular}{m{0.12in}>{\raggedright}m{1.9in}>{\raggedright}m{0.46in}>{\raggedright}m{3.9in}>{\hspace*{3pt}}>{\hspace*{-5pt}}c>{\hspace*{-4pt}}c>{\hspace*{-4pt}}c>{\hspace*{-6pt}}>{\hspace*{1pt}}c>{\hspace*{1pt}}m{1.35in}}
     \toprule
     & \textbf{Package name} & \textbf{Label} & \textbf{Purpose} & \rot{\textbf{Specification}} & \rot{\textbf{libSBML Support}} & \rot{\textbf{JSBML Support}} & \rot{\textbf{Test Suite}} & \textbf{Reference} \\
     \midrule
@@ -31,7 +31,7 @@
     & \done
     & \done
     & \done
-    & \cite{Olivier2018a}
+    & \textls[-50]{\cite{Olivier2018a}}
     \\    
 \released
 & Groups
@@ -41,7 +41,7 @@
     & \done
     & \done
     & \notapplicable
-    & \cite{hucka2016sbml}
+    & \textls[-50]{\cite{hucka2016sbml}}
     \\
 \released
 & Hierarchical Model Composition
@@ -51,7 +51,7 @@
     & \done
     & \done
     & \done
-    & \cite{Smith2015}
+    & \textls[-50]{\cite{Smith2015}}
     \\
 \released
 & Layout
@@ -61,7 +61,7 @@
     & \done
     & \done
     & \notapplicable
-    & \cite{Gauges2015}
+    & \textls[-50]{\cite{Gauges2015}}
     \\
 \released
 & Multistate, Multicomponent, \& Multicompartment Species
@@ -71,7 +71,7 @@
     & \done
     & \done
     & \inprogress
-    & \cite{zhang2018multi}
+    & \textls[-50]{\cite{zhang2018multi}}
     \\
 \released
 & Qualitative Models
@@ -81,7 +81,7 @@
     & \done
     & \done
     & \inprogress
-    & \cite{Chaouiya2015sbml}
+    & \textls[-50]{\cite{Chaouiya2015sbml}}
     \\
 \released
 & Rendering
@@ -91,7 +91,7 @@
     & \done
     & \done
     & \notapplicable
-    & \cite{Bergmann2018sbml}
+    & \textls[-50]{\cite{Bergmann2018sbml}}
     \\
 \hline
 \notreleased
