@@ -5,7 +5,7 @@
 %% Date created: 2015-11-25
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{draft-sbml-paper}
+\ProvidesClass{sbml-paper}
 
 \ProcessOptions
 \LoadClass[11pt]{article}
