@@ -32,7 +32,7 @@
 
 \title{SBML Level 3: an extensible format for the exchange and reuse\\of biological models}
 
-\author[1]{\emph{List Authors here}}
+\author[1]{\emph{List of authors here}}
 
 % ======================================================================
 
@@ -42,6 +42,16 @@
 
 \begin{abstract}
 Systems biology has experienced dramatic growth in the number, size and complexity of computational models describing biology. To reproduce simulation results and reuse models, researchers need to exchange precise and unambiguous descriptions of model structure and meaning. SBML (the Systems Biology Markup Language) is a community-developed format for this purpose. The latest edition, called SBML Level~3, has a modular structure, with a core suited to representing reaction-based models, and packages that extend the core with features suited for a variety of model types. Examples include constraint-based models, reaction-diffusion models, logical network models, and rule-based models. SBML and its rich software ecosystem have transformed the way systems biologists build and interact with models, and has played an important role in increasing model interoperability and reuse over the past two decades. More recently, a rise of multiscale models of whole cells and organs, and new data sources such as single cells measurements and live imaging, have precipitated new ways of integrating data and models. SBML Level~3 provides the foundation needed to support this evolution.
+
+\vspace*{0.25in}\noindent
+\begin{tabular}{@{}ll@{}}
+  \textbf{MSB subject category}: & Methods \& Resources \\
+  \textbf{Keywords}: & methods / software / biological modeling \\
+  \textbf{Running title}:        & SBML Level 3\\
+  \textbf{Abstract word count}:  & 172 \\
+  \textbf{Body word count (using \texttt{texcount})}: & 5420\\
+\end{tabular}
+
 \end{abstract}
 
 \clearpage
@@ -54,15 +64,14 @@ Systems modeling and numerical simulations in biology can be traced to the mid-2
 
 The availability of more data about biological mechanisms, more powerful modeling methods, and dramatically increased computing power, led to the rise of systems biology as a compelling research theme around the turn of the millennium~\citep{kitano2000perspectives, ideker2001new}. Though computational models were at first published as printed equations in journal articles, the desire to reuse an ever-increasing number of models called for digital formats that could be communicated directly between different software systems and databases, and easily exchanged between scientists~\citep[topics of interest as early as the 1960's; c.f.][]{Garfinkel1969construction}. This drove efforts to create tool-\emph{independent} ways of representing models that could avoid the potential for human translation errors and provide a common starting point for simulations and analyses regardless of the software used~\citep{Lloyd2004-fd, Goddard2001-ix, hucka_2001}. One such effort was SBML, the Systems Biology Markup Language. Its initial design was motivated by discussions to create a ``metabolic model file format'' following a 1999 workshop~\citep{Cornish-Bowden2000technological}. A distributed community thereafter discussed ideas that informed work at Caltech in late 1999/early 2000 and led (after a series of public drafts) to the specification of the official version of SBML Level 1 Version 1 being released in March 2001~\citep{hucka_2003}.
 
-While SBML was initially developed to exchange non-spatial compartmental models of biochemical reaction networks primarily formulated in terms of chemical kinetics~\citep{hucka_2002}, it was always understood that there existed more types of models than the initial version of SBML could represent directly. However, seeking community consensus on a limited set of simpler features, which could be readily implemented in software at the time, was deemed a more pragmatic strategy. A deliberate decision was taken to delay the addition of more advanced capabilities to later in time.  As a result, SBML has evolved in stages in a community-driven fashion that has benefited from the efforts of many researchers worldwide over nearly two decades.  Over time, the community saw the need to support a broader range of model types, modeling paradigms, and research areas. In addition to reaction-diffusion models, alternative modeling frameworks have risen in popularity in the past decade~\citep{Machado2011modelinga}. These needs drove a profound change in SBML's structure: a facility to permit layering the core of SBML with new features suited to more types of models, together with a way for individual models to identify which sets of extensions they need for proper interpretation. The release of SBML Level~3 in 2010~\citep{Hucka2015} has provided a new foundation to enable the exchange of a greater variety of models in various domains of biology (Figure~\ref{level-3-diagram}).
+While SBML was initially developed to exchange non-spatial compartmental models of biochemical reaction networks primarily formulated in terms of chemical kinetics~\citep{hucka_2002}, it was always understood that there existed more types of models than the initial version of SBML could represent directly. However, seeking community consensus on a limited set of simpler features, which could be readily implemented in software at the time, was deemed a more pragmatic strategy. A deliberate decision was taken to delay the addition of more advanced capabilities to later in time.  As a result, SBML has evolved in stages in a community-driven fashion that has benefited from the efforts of many researchers worldwide over nearly two decades.  Over time, the community saw the need to support a broader range of model types, modeling paradigms, and research areas. In addition to reaction-diffusion models, alternative modeling frameworks have risen in popularity in the past decade~\citep{Machado2011modelinga}. These needs drove a profound change in SBML's structure: a facility to permit layering the core of SBML with new features suited to more types of models, together with a way for individual models to identify which sets of extensions they need for proper interpretation. The release of SBML Level~3 in 2010~\citep{Hucka2015} has provided a new foundation to enable the exchange of a greater variety of models in various domains of biology (\autoref{level-3-diagram}).
 
 In this article, we describe SBML Level~3's structure, its support for different model features, its community-oriented development process, its impact, and finally, forthcoming challenges.
 
 \begin{figure}[b]
-  %\center
-  %\includegraphics[width=\textwidth]{res/SBML-Level3-v08.png}
-  \vspace*{5in}
-\caption{SBML Level 3 consists of a core (center) and specialized SBML Level~3 \emph{packages} (in blue), which provide syntactical constructs to support additional modeling approaches. The packages support new types of modeling (in gray) needed for large and complex models such as those used in various domains and fields of biology (in red). The meanings of SBML package labels such as ``fbc'' are given in Table~1, with additional package information in Box~1.}
+  \center
+  \includegraphics[width=\textwidth]{res/SBML-Level3-v08.png}
+\caption{SBML Level 3 consists of a core (center) and specialized SBML Level~3 \emph{packages} (in blue), which provide syntactical constructs to support additional modeling approaches. The packages support new types of modeling (in gray) needed for large and complex models such as those used in various domains and fields of biology (in red). The meanings of SBML package labels such as ``fbc'' are given in \autoref{packages}, with additional package information in Box~1.}
 \label{level-3-diagram}
 \end{figure}
 
@@ -103,7 +112,7 @@ Constant evolution in scientific methods presents challenges for the creation of
 
 The SBML community sought to address these challenges by putting in place certain structural features in SBML's development process.  The first is the notion of \emph{Levels}.  A Level in SBML is an attempt to provide a given set of features for describing models, with higher Levels providing more powerful features.  For example, the ability to express discrete events was added to SBML Level~2 but does not exist in Level~1.  SBML Levels are mostly upwardly compatible, in the sense that the vast majority of models encoded in Level $n$ can be translated to Level $n+1$.  \emph{Versions} are used to introduce refinements to a given Level to account for realizations that come from real-life use of SBML.  Finally, SBML Level~3 introduced an extensible modular architecture consisting of a central set of fixed features (named \emph{SBML Level~3 Core}), and a scheme for adding \emph{packages} that can augment the \emph{Core} by extending existing elements, adding new elements, and adjusting the meaning or scope of elements.  A model declares which packages it uses in order to guide its interpretation by software applications.  If a software tool detects the presence of packages that it does not support, it may inform users if it cannot work with the model.  Together, these three features (Levels, Versions, packages) help address the challenges discussed above: they ease coping with evolution in methods by collecting significant changes into discrete stages (SBML Levels), they help deal with the inevitable need for revisions (Versions within Levels), and they allow developers to limit the feature set they implement (SBML Levels on the one hand, and SBML Level~3 packages on the other hand).
 
-Packages allow SBML Level~3 to represent many model types and characteristics in a more natural way than if they had to be shoehorned into SBML Core constructs exclusively.  Twelve packages have been proposed to date (Table~\ref{packages}); six have been fully developed into consensus specifications and are used by at least two software implementations (Box~\ref{box:packages}), and another three have draft specifications in use by software tools.  New packages can be developed independently, within dedicated communities, at a pace that suits them.  This was the case for logical modeling with the CoLoMoTo community~\citep{naldi2015cooperative}, constraint-based modeling within the COBRA community~\citep{Ebrahim2015}, and rule-based modeling with a community of like-minded software creators~\citep{Blinov2004, Palmisano2014multistate, zhang2013simmune}.  The approach of letting models declare the SBML packages needed for their full interpretation is useful because even if a software application does not implement support for a given package, the application may still be able to interpret \emph{some} fundamental aspects of the model by understanding Level~3 Core (and perhaps other packages used by the model).  For example, given a model that uses SBML ``spatial'', the reaction network of a reaction-diffusion model may still provide useful information even without the spatial context.
+Packages allow SBML Level~3 to represent many model types and characteristics in a more natural way than if they had to be shoehorned into SBML Core constructs exclusively.  Twelve packages have been proposed to date (\autoref{packages}); six have been fully developed into consensus specifications and are used by at least two software implementations (Box~\ref{box:packages}), and another three have draft specifications in use by software tools.  New packages can be developed independently, within dedicated communities, at a pace that suits them.  This was the case for logical modeling with the CoLoMoTo community~\citep{naldi2015cooperative}, constraint-based modeling within the COBRA community~\citep{Ebrahim2015}, and rule-based modeling with a community of like-minded software creators~\citep{Blinov2004, Palmisano2014multistate, zhang2013simmune}.  The approach of letting models declare the SBML packages needed for their full interpretation is useful because even if a software application does not implement support for a given package, the application may still be able to interpret \emph{some} fundamental aspects of the model by understanding Level~3 Core (and perhaps other packages used by the model).  For example, given a model that uses SBML ``spatial'', the reaction network of a reaction-diffusion model may still provide useful information even without the spatial context.
 
 Though this modular approach has benefits, it is not without potential pitfalls.  The main risks are fragmentation of the community, and incompatibility of packages due to complex feature dependencies.  The SBML community addressed the former by maintaining communications between package developers.  As for the latter, API libraries (see Box~\ref{box:software}) can handle \emph{some} combinations of packages and hide some of the complexity.  Still, there remain some combinations of packages that are not fully understood, and it remains for future work to define how (if ever) they can be combined use in a single model.
 
@@ -322,9 +331,17 @@ As the field of systems biology continues to grow and address emerging challenge
 
 ...\emph{acknowledgements here}...
 
+
+% ======================================================================
+\section{Author contributions}
+
+...\emph{to be added here}...
+
+
+
 \clearpage
 
-\bibliographystyle{rss}
+\bibliographystyle{sbml-msb}
 \bibliography{literature}
 %\printbibliography
 \end{document}
