@@ -1,4 +1,4 @@
-\documentclass{draft-sbml-paper}
+\documentclass{sbml-paper}
 \usepackage{authblk} % managing affiliations
 \usepackage{wrapfig}
 
@@ -70,7 +70,7 @@ In this article, we describe SBML Level~3's structure, its support for different
 
 \begin{figure}[b]
   \center
-  \includegraphics[width=\textwidth]{res/SBML-Level3-v08.png}
+  \includegraphics[width=\textwidth]{resources/SBML-Level3-v08.png}
 \caption{SBML Level 3 consists of a core (center) and specialized SBML Level~3 \emph{packages} (in blue), which provide syntactical constructs to support additional modeling approaches. The packages support new types of modeling (in gray) needed for large and complex models such as those used in various domains and fields of biology (in red). The meanings of SBML package labels such as ``fbc'' are given in \autoref{packages}, with additional package information in Box~1.}
 \label{level-3-diagram}
 \end{figure}
@@ -95,7 +95,7 @@ Any element of an SBML model can be elaborated using optional machine-readable m
 
 \begin{figure}[htb]
   \center
-  \includegraphics[width=.79\textwidth]{res/SBML_XML_example_v03.png}
+  \includegraphics[width=.79\textwidth]{resources/SBML_XML_example_v03.png}
   \caption{A closer look at SBML. A) Fragments of the global structure of an SBML file. In this example, the use of several SBML packages is declared in the file header. Model elements in the file include the descriptions of model variables, as well as their relationships.  Elements of the same type are collected into ``ListOf'' elements; \eg model parameters are in the ListOfParameters element. SBML package elements can refer to elements in the SBML Core as necessary. B) Model elements are linked through unique identifiers used in the mathematical constructs and the elements describing the reactions, the molecular species, and their localization. The full model for this example is available in BioModels Database~\citep{chelliah2014biomodels} as the model with identifier \texttt{MODEL1904090001}.}
 \label{fig:examples-sbml}
 \end{figure}
@@ -245,7 +245,7 @@ A catalog (\tighturl{http://sbml.org/SBML_Software_Guide}) of software applicati
 
 % \begin{wrapfigure}[34]{r}{0.5\textwidth}
 %   \begin{center}
-%     \includegraphics{res/Pkg_develop_v2.png}
+%     \includegraphics{resources/Pkg_develop_v2.png}
 %   \end{center}
 % \end{wrapfigure}
 
