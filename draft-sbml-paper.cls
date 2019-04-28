@@ -59,6 +59,14 @@ linkcolor=darkblue,citecolor=mediumgreen]{hyperref}
 % Style adjustments.
 % ......................................................................
 
+% Rename figure references per MSB style.
+
+\renewcommand{\figurename}{Fig}
+\renewcommand{\figureautorefname}{Fig~}
+\renewcommand{\tablename}{Table}
+\renewcommand{\tableautorefname}{Table~}
+
+
 % Reduce spacing after section headings.
 
 \titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
