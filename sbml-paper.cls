@@ -35,6 +35,8 @@
 bookmarks=false,pdfhighlight=/O,urlcolor=darkblue,
 linkcolor=darkblue,citecolor=mediumgreen]{hyperref}
 \RequirePackage{rotating}
+\RequirePackage[noblocks]{authblk}
+\RequirePackage{wrapfig}
 
 % Color definitions.
 % ......................................................................
