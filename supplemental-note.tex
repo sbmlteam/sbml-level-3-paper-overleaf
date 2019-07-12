@@ -1,13 +1,21 @@
 \documentclass{sbml-paper}
 
+% Prevent breaks in the middle of paragraphs.
+\widowpenalties 1 10000
+
 \newcommand{\orcid}[1]{\href{https://orcid.org/#1}{#1}}
 
+% ======================================================================
 \begin{document}
 
 \begin{center}\large\bfseries
-Supplementary information to:\\
+Supplementary information for:\\
 \emph{SBML Level 3: an extensible format for the exchange and reuse of biological models}
 \end{center}
+
+\vspace*{0.25in}
+
+\section{Principal authors}
 
 \textbf{Sarah M. Keating [S.M.K.] (\orcid{0000-0002-3356-3542})} (1) Computing and Mathematical Sciences, California Institute of Technology, Pasadena, California 91125, US; (2) European Bioinformatics Institute (EMBL-EBI), Hinxton, Cambridgeshire, UK; (3) BioQuant/COS, Heidelberg University, Heidelberg 69120, Germany.
 
@@ -57,7 +65,7 @@ Supplementary information to:\\
 
 \textbf{Darren J. Wilkinson [D.J.W.] (\orcid{0000-0003-0736-802X})} (1) School of Mathematics, Statistics and Physics, Newcastle University, Newcastle upon Tyne, NE1 7RU, United Kingdom; (2) The Alan Turing Institute, British Library, London, NW1 2DB, United Kingdom.
 
-\textbf{Michael L. Blinov [M.B.] (\orcid{0000-0002-9363-9705})} Center for Cell Analysis and Modeling, University of Connecticut School of Medicine, Farmington, Connecticut 06032, United States.
+\textbf{Michael L. Blinov [M.L.B.] (\orcid{0000-0002-9363-9705})} Center for Cell Analysis and Modeling, University of Connecticut School of Medicine, Farmington, Connecticut 06032, United States.
 
 \textbf{Kimberly Begley [K.B.] (\orcid{0000-0002-1642-7493})} Consultant, California Institute of Technology, Pasadena, California 91125, United States.
 
@@ -114,7 +122,8 @@ Supplementary information to:\\
 \textbf{Michael Hucka [M.H.] (\orcid{0000-0001-9105-5960})} Computing and Mathematical Sciences, California Institute of Technology, Pasadena, California 91125, United States.
 
 
-\section*{SBML Community members}
+\clearpage
+\section{SBML community members}
 
 \textbf{Richard R. Adams [R.A.] (\orcid{0000-0003-1501-0941})} ResearchSpace, 24 Fountainhall Road, Edinburgh EH9 2LW, United Kingdom.
 
@@ -297,6 +306,53 @@ Supplementary information to:\\
 \textbf{Anna Zhukova [A.Z.] (\orcid{0000-0003-2200-793})} Institut Pasteur – Evolutionary Bioinformatics – C3BI, USR 3756 IP CNRS – Paris, France.
 
 \textbf{Jeremy Zucker [J.Z.] (\orcid{0000-0002-7276-9009})} Computational Biology, Pacific Northwest National Laboratory, Richland, Washington, 99352, United States.
+
+
+\clearpage
+\subsection{Acknowledgments by SBML community members}
+
+B.A.'s work on SBML Level~3 was supported by the National Institutes of Health (NIH, US) and he is currently employed by AstraZeneca.
+
+G.B. was supported by National Resource for Network Biology (NRNB, US), award \No 5P41GM103504.
+
+J.Č. was supported by the Czech Research Infrastructure Infrastructure for Systems Biology C4SYS, project \No LM2015055; GA ČR, grant \No 18-24397S; and the MEYS of the Czech Republic under OP RDE grant \No CZ.02.1.01/ 0.0/0.0/16\_026/0008413 ``Strategic Partnership for Environmental Technologies and Energy Production''.
+
+D.D. was supported by grant iLite (Innovations for LIver and Tissue Engineering) from Agence nationale de la recherche (ANR, France) to INRIA, Paris, France; by grant LiSyM (Liver Systems Medicine) from Bundesministerium für Bildung und Forschung (BMBF, Germany) to IfADo, Dortmund, Germany; by grant VLN (Virtual Liver Network) from Bundesministerium für Bildung und Forschung (BMBF, Germany) to IfADo, Dortmund, Germany; by grant Physicancer from Institut national de la santé et de la recherche médicale (INSERM, France) to INRIA, Paris, France; and by grant NOTOX (Predicting long-term toxic effects using computer models based on systems characterisations of organotypic cultures) from EU 7th Framework Programme to INRIA, Paris, France.
+
+C.E. was supported by CHARME, COST, Action CA15110 MoU (PI: Chris Evelo) to Maastricht University.
+
+R.F. was supported by the U.S. Department of Energy, Offices of Advanced Scientific Computing Research and the Biological and Environmental Research as part of the Scientific Discovery Through Advanced Computing program, grant \No DE-SC0010429.
+
+A.G. was supported by the Japanese Society for the Promotion of Science.
+
+M.G. was supported by funding to HITS from the German Federal Ministry of Education and Research (BMBF) as part of the Liver Systems Medicine Network LiSyM (FKZ 031L0056) and through the MulticellML project (FKZ 01ZX1707B), as well as from the European Union Horizon2020 framework programme of the European Commission under Grant Agreement 825843 and from the Klaus Tschira Foundation (KTS).
+
+M.G.G. was supported by European Molecular Biology Laboratory (EMBL) core funding.
+
+W.H. was supported by grant \No R01GM111510 from the National Institute of General Medical Sciences (NIGMS, US) of the NIH.
+
+D.K. was supported by Novo Nordisk Foundation grant \No NNF10CC1016517.
+
+E.K. was supported by Deutsche Forschungsgemeinschaft (DFG, GRK1772, GRK 2290 and TRR175) and by People Programme (Marie Skłodowska-Curie Actions H2020-MSCA-ITN-2015-675585).
+
+F.K. was supported by the Russian Foundation for Basic Research, 17-00-00296, Institute of Computational Technologies of SB RAS, Novosibirsk, 630090, Russian Federation (PI: Fedor Kolpakov).
+
+J.K. was supported by grants \No R35~GM119771 and P41~EB023912 from the NIH (US) to the Icahn School of Medicine.
+
+P.K. was supported by NIH grant \No GM075742 from the NIH (US) to SRI International.
+
+S.K. was supported by grant \No 031L104B (de.NBI partner project ``ModSim'') by the German Federal Ministry of Education and Research to MPI Magdeburg.
+
+L.M.L. was supported by grant \No P41GM103313 from the NIH (US) to the University of Connecticut School of Medicine.
+
+P.M. was supported by grant \No GM080219 from the NIH (US).
+
+P.T.M was supported by grant \No PTDC/EEI-CTP/2914/2014 from Fundação para a Ciência e a Tecnologia (FCT) to INESC-ID.
+
+A.P.'s contribution to this manuscript is a follow-up of the work done while employed at Virginia Tech.\ (VA, US). The opinions expressed in this manuscript are the authors' own and do not reflect the view of the National Institutes of Health, the Department of Health and Human Services, or the United States Government.
+
+S.C.S. was supported by grant \No U19 AI117873 from the NIH (US).
+
 
 \end{document}
 
