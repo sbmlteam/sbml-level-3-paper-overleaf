@@ -162,6 +162,7 @@ linkcolor=darkblue,citecolor=mediumgreen]{hyperref}
 \newcommand{\mailto}[1]{\link{mailto:#1}{#1}}
 \newcommand{\eg}{e.g.,\xspace}
 \newcommand{\ie}{i.e.,\xspace}
+\newcommand{\No}{\textnumero$\,\,$}
 
 % Epilogue.
 % ......................................................................
