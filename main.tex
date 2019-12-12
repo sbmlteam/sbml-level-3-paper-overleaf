@@ -314,14 +314,14 @@ One of COMBINE's core activities is to maintain a list of persistent URLs for al
 \mybox{Software infrastructure for SBML}\label{box:software}
 % **********************************************************************
 
-\newcommand{\tighturl}[1]{\textls[-20]{\url{#1}}}
+\newcommand{\tighturl}[1]{\textls[-35]{\url{#1}}}
 
 \begin{tabular} {@{}c|c@{}}
     \textbf{Application Programming Interface (API)} & \textbf{Test Suite} \\
-\begin{tabular} {P{3.1 in}}
+\begin{tabular} {P{3 in}}
 Programming libraries help to read, write, manipulate, validate, and transform SBML
 \begin{enumerate}
-	\item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}) is written in C++ and offers language interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R and Ruby
+	\item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}) is written in C++ and offers language interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R, and Ruby
 
 	\item JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) is a pure-Java based implementation
 \end{enumerate}
@@ -333,8 +333,8 @@ Both libraries:
 \end{itemize}
 \end{tabular}
 &
-\begin{tabular} {P{2.9 in}}
-An SBML Test Suite (\tighturl{http://sbml.org/Software/SBML_Test_Suite}) 
+\begin{tabular} {P{3 in}}
+The SBML Test Suite (\tighturl{http://sbml.org/Software/SBML_Test_Suite}) 
 helps developers support SBML correctly and helps users check software compliance
 \begin{enumerate}
 \item Thousands of test cases for
@@ -342,14 +342,14 @@ helps developers support SBML correctly and helps users check software complianc
 	\item Semantic interpretation of models (using results from both deterministic and stochastic simulation)
 	\item Syntactic correctness
 \end{itemize}
-	\item A graphical front end that enables test cases to be filtered by Level/Version and a range of test tags
-	\item An online database where test results can be uploaded and compared with results from other simulators
+	\item A graphical front end enables cases to be filtered by Level/Version and type of test
+	\item An online database allows results to be uploaded and compared with results from other simulators
 \end{enumerate}
 \end{tabular}
 \\
 \hline
     \vspace*{0.5ex}\textbf{Validation Facilities} & \textbf{Conversion Facilities} \\
-\begin{tabular} {P{3.1 in}}
+\begin{tabular} {P{3 in}}
 Validation software can check files for compliance to the definition of SBML
 \begin{enumerate}
 	\item API libraries include built-in validation
@@ -364,12 +364,12 @@ Validation ensures compliance with:
 \end{itemize}
 \end{tabular}
 &
-\begin{tabular} {P{2.9 in}}
-Converters (\tighturl{http://sbml.org/Software/Converters}) can translate certain other formats to SBML or vice versa
+\begin{tabular} {P{3 in}}
+Converters (\tighturl{http://sbml.org/Software/Converters}) can translate some other formats to/from SBML
 \begin{enumerate}
       \item Standalone conversion tools support format conversions from formats that include MATLAB~\citep[using MOCCASIN,][]{gomez2016moccasin}, BioPAX~\citep[using BioPAX2SBML,][]{Buchel2012qualitative}, and others
       \item Online services such as SBFC~\citep{Rodriguez2016systems} convert uploaded files to a variety of formats
-      \item API libraries such as libSBML provide built-in converters between different SBML Levels/Versions and different SBML constructs
+      \item API libraries provide converters between different SBML Levels/Versions and different SBML constructs
 \end{enumerate}
 \end{tabular}
 \\
@@ -384,7 +384,7 @@ A catalog (\tighturl{http://sbml.org/SBML_Software_Guide}) of software applicati
 \begin{enumerate}
 	\item A tabular interface highlights supported SBML features of each software system
 	\item A list interface displays human-readable summaries of software systems
-% 	\item Online gallery of screenshots (where provided)
+  	\item Software can be added to the list upon request
 \end{enumerate}
 \end{tabular}
 }
