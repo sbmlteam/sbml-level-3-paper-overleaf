@@ -15,6 +15,7 @@
 
 \RequirePackage[pdftex,rgb,dvipsnames,svgnames,hyperref,table]{xcolor}
 \RequirePackage[letterpaper,top=0.75in,total={6.5in,9.5in}]{geometry}
+\RequirePackage[warn]{textcomp}
 \RequirePackage{wasysym}
 \RequirePackage{amssymb}
 \RequirePackage{fourier}
