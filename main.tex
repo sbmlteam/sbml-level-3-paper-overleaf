@@ -320,18 +320,14 @@ One of COMBINE's core activities is to maintain a list of persistent URLs for al
 \begin{tabular} {@{}c|c@{}}
     \textbf{Application Programming Interface (API)} & \textbf{Test Suite} \\
 \begin{tabular} {P{3 in}}
-Programming libraries help to read, write, manipulate, validate, and transform SBML
+Open-source (LGPL) libraries and code generators help read, write, manipulate, validate, and transform SBML. They support all  Levels and Versions of SBML, and all Level~3 packages.
 \begin{enumerate}
-	\item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}) is written in C++ and offers language interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R, and Ruby
+	\item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}), written in C++, offers interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R, and Ruby
 
-	\item JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) is a pure Java-based implementation
+	\item JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) offers a pure Java API
+
+        \item Deviser (\tighturl{http://sbml.org/Software/Deviser}) generates libSBML code for rapid package prototyping
 \end{enumerate}
-Both libraries:
-\begin{itemize}
-	\item Support all Levels and Versions of SBML
-	\item Support all SBML Level~3 packages
-	\item Use LGPL License
-\end{itemize}
 \end{tabular}
 &
 \begin{tabular} {P{3 in}}
@@ -340,7 +336,7 @@ helps developers support SBML correctly and helps users check software complianc
 \begin{enumerate}
 \item Thousands of test cases for
 \begin{itemize}
-	\item Semantic interpretation of models (using results from both deterministic and stochastic simulation)
+	\item Semantic interpretation of models (for both deterministic and stochastic simulation)
 	\item Syntactic correctness
 \end{itemize}
 	\item A graphical front end enables cases to be filtered by Level/Version and type of test
@@ -368,7 +364,7 @@ Validation ensures compliance with:
 \begin{tabular} {P{3 in}}
 Converters (\tighturl{http://sbml.org/Software/Converters}) can translate some other formats to/from SBML
 \begin{enumerate}
-      \item Standalone conversion tools support format conversions from formats that include MATLAB~\citep[using MOCCASIN,][]{gomez2016moccasin}, BioPAX~\citep[using BioPAX2SBML,][]{Buchel2012qualitative}, and others
+      \item Conversion tools support format conversions from formats that include MATLAB~\citep[using MOCCASIN,][]{gomez2016moccasin}, BioPAX~\citep[using BioPAX2SBML,][]{Buchel2012qualitative}, and others
       \item Online services such as SBFC~\citep{Rodriguez2016systems} convert uploaded files to a variety of formats
       \item API libraries provide converters between different SBML Levels/Versions and different SBML constructs
 \end{enumerate}
