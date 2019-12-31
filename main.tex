@@ -28,6 +28,20 @@
   \AtBeginDocument{\hypersetup{pdftitle=\@title, pdfsubject={Molecular Systems Biology}}}
 \makeatother
 
+% The following stops LaTeX from generating an error for empty
+% list/enumeration environments.  This is not needed for our paper,
+% but some bizarre issue with one of our box environments causes
+% latexdiff to create an empty enumerate, and *that* fails when we
+% try to run latex on the diff file.  So the purpose of the following
+% is only to make it possible to run latexdiff later.
+%
+% This particular solution for empty lists is from user "Ian Thompson"
+% posted to https://tex.stackexchange.com/a/43742/8318
+
+\makeatletter
+\let\@noitemerr\relax
+\makeatother
+
 % ======================================================================
 
 \begin{document}
@@ -317,76 +331,96 @@ One of COMBINE's core activities is to maintain a list of persistent URLs for al
 
 \newcommand{\tighturl}[1]{\textls[-35]{\url{#1}}}
 
-\begin{tabular}{@{}c|c@{}}
+\begin{minipage}{\textwidth}
+  \begin{tabular}{@{}c|c@{}}
+
     \textbf{Application Programming Interface (API)} & \textbf{Test Suite} \\
-\begin{tabular}{P{3in}}
-Open-source (LGPL) libraries and code generators help read, write, manipulate, validate, and transform SBML. They support all  Levels and Versions of SBML, and all Level~3 packages.
-\begin{enumerate}
-	\item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}), written in C++, offers interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R, and Ruby
+    \begin{tabular}{P{3in}}
+      Open-source (LGPL) libraries and code generators help read, write, manipulate, validate, and transform SBML. They support all  Levels and Versions of SBML, and all Level~3 packages.
+      \begin{enumerate}
 
-	\item JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) offers a pure Java API
+      \item LibSBML~\citep{bornstein2008libsbml} (\tighturl{http://sbml.org/Software/libSBML}), written in C++, offers interfaces for C, C++, C\#, Java, JavaScript, MATLAB, Octave, Perl, PHP, Python, R, and Ruby
 
-        \item Deviser (\tighturl{http://sbml.org/Software/Deviser}) generates libSBML code for rapid package prototyping
-\end{enumerate}
-\end{tabular}
-&
-\begin{tabular}{P{3in}}
-The SBML Test Suite (\tighturl{http://sbml.org/Software/SBML_Test_Suite}) 
-helps developers support SBML correctly and helps users check software compliance
-\begin{enumerate}
-\item Thousands of test cases for
-\begin{itemize}
+      \item JSBML~\citep{Rodriguez2015} (\tighturl{http://sbml.org/Software/JSBML}) offers a pure Java API
+
+      \item Deviser (\tighturl{http://sbml.org/Software/Deviser}) generates libSBML code for rapid package prototyping
+      \end{enumerate}
+    \end{tabular}
+    &
+    \begin{tabular}{P{3in}}
+      The SBML Test Suite (\tighturl{http://sbml.org/Software/SBML_Test_Suite}) 
+      helps developers support SBML correctly and helps users check software compliance
+      \begin{enumerate}
+
+      \item Thousands of test cases for
+        \begin{itemize}
 	\item Semantic interpretation of models (for both deterministic and stochastic simulation)
 	\item Syntactic correctness
-\end{itemize}
-	\item A graphical front end enables cases to be filtered by Level/Version and type of test
-	\item An online database allows results to be uploaded and compared with results from other simulators
-\end{enumerate}
-\end{tabular}
-\\
-\hline
+        \end{itemize}
+
+      \item A graphical front end enables cases to be filtered by Level/Version and type of test
+
+      \item An online database allows results to be uploaded and compared with results from other simulators
+
+      \end{enumerate}
+    \end{tabular}
+    \\
+    \hline
     \vspace*{0.5ex}\textbf{Validation Facilities} & \textbf{Conversion Facilities} \\
-\begin{tabular}{P{3in}}
-Validation software can check files for compliance to the definition of SBML
-\begin{enumerate}
-	\item API libraries include built-in validation
-	\item Online validator has simple user interface (\mbox{\tighturl{http://sbml.org/Facilities/Validator}})
-	\item Web services support software access
-\end{enumerate}
+    \begin{tabular}{P{3in}}
+      Validation software can check files for compliance to the definition of SBML
+      \begin{enumerate}
 
-Validation ensures compliance with:
-\begin{itemize}
-	\item SBML syntax
-	\item SBML validation rules published as part of each accepted SBML specification
-\end{itemize}
-\end{tabular}
-&
-\begin{tabular}{P{3in}}
-Converters (\tighturl{http://sbml.org/Software/Converters}) can translate some other formats to/from SBML
-\begin{enumerate}
+      \item API libraries include built-in validation
+
+      \item Online validator has simple user interface (\mbox{\tighturl{http://sbml.org/Facilities/Validator}})
+
+      \item Web services support software access
+
+      \end{enumerate}
+
+      Validation ensures compliance with:
+      \begin{itemize}
+
+      \item SBML syntax
+
+      \item SBML validation rules published as part of each accepted SBML specification
+
+      \end{itemize}
+    \end{tabular}
+    &
+    \begin{tabular}{P{3in}}
+      Converters (\tighturl{http://sbml.org/Software/Converters}) can translate some other formats to/from SBML
+      \begin{enumerate}
+
       \item Conversion tools support format conversions from formats that include MATLAB~\citep[using MOCCASIN,][]{gomez2016moccasin}, BioPAX~\citep[using BioPAX2SBML,][]{Buchel2012qualitative}, and others
-      \item Online services such as SBFC~\citep{Rodriguez2016systems} convert uploaded files to a variety of formats
-      \item API libraries provide converters between different SBML Levels/Versions and different SBML constructs
-\end{enumerate}
-\end{tabular}
-\\
-\hline
-\multicolumn{2}{c} {
-\textbf{Software Guide} 
-}
-\\
-\multicolumn{2}{c}{
-\begin{tabular}{P{6in}}
-A catalog (\tighturl{http://sbml.org/SBML_Software_Guide}) of software applications, libraries and online services known to support SBML---over 290 entries to date
-\begin{enumerate}
-	\item A tabular interface highlights supported SBML features of each software system
-	\item A list interface displays human-readable summaries of software systems
-  	\item Software can be added to the list upon request
-\end{enumerate}
-\end{tabular}
-}
-\end{tabular}
 
+      \item Online services such as SBFC~\citep{Rodriguez2016systems} convert uploaded files to a variety of formats
+
+      \item API libraries provide converters between different SBML Levels/Versions and different SBML constructs
+
+      \end{enumerate}
+    \end{tabular}
+  \end{tabular}
+  \begin{minipage}{6.25in}
+    \hrulefill
+    \vspace*{-1em}
+    \begin{center}
+      \textbf{Software Guide}
+    \end{center}
+    \vspace*{-1ex}
+    A catalog (\tighturl{http://sbml.org/SBML_Software_Guide}) of software applications, libraries and online services known to support SBML---over 290 entries to date
+    \begin{enumerate}
+
+    \item A tabular interface highlights supported SBML features of each software system
+
+    \item A list interface displays human-readable summaries of software systems
+
+    \item Software can be added to the list upon request
+
+    \end{enumerate}
+  \end{minipage}
+\end{minipage}
 
 % 2019-04-22 <mhucka@caltech.edu>
 % We need to shorten the paper, and this box doesn't seem essential.
