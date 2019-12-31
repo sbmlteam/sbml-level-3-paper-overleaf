@@ -1,4 +1,4 @@
-# -*- mode: gitignore; -*-
+# -*- mode: gitignore; visual-wrap-column: 80; -*-
 
 # Mac-specific things to ignore:
 # .............................................................................
@@ -25,8 +25,9 @@ auto
 *.toc
 *.loc
 *.mp
+texput.log
 
-% Things specific to this directory.
+# Things specific to this directory.
 # .............................................................................
 
 main.pdf
